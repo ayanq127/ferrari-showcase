@@ -57,7 +57,7 @@ function PhaseHero() {
           animate={{ y: 0 }}
           transition={{ delay: 0.2, duration: 0.9, ease: [0.16, 1, 0.3, 1] }}
           className="font-[family-name:var(--font-orbitron)] text-white font-black leading-none tracking-tight"
-          style={{ fontSize: "clamp(3rem, 9vw, 9rem)" }}
+          style={{ fontSize: "clamp(1.5rem, 3.5vw, 4rem)" }}
         >
           {carData.hero.headline}
         </motion.h1>
@@ -68,7 +68,7 @@ function PhaseHero() {
           animate={{ y: 0 }}
           transition={{ delay: 0.35, duration: 0.9, ease: [0.16, 1, 0.3, 1] }}
           className="font-[family-name:var(--font-orbitron)] text-ferrari-red font-black leading-none tracking-tight"
-          style={{ fontSize: "clamp(3rem, 9vw, 9rem)" }}
+          style={{ fontSize: "clamp(1.5rem, 3.5vw, 4rem)" }}
         >
           {carData.hero.subheadline}
         </motion.div>

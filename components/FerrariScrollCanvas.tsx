@@ -26,7 +26,6 @@ export default function FerrariScrollCanvas({
     [0, totalFrames - 1]
   );
 
-  // Load all images upfront
   useEffect(() => {
     const canvas = canvasRef.current;
     if (!canvas) return;
@@ -51,7 +50,6 @@ export default function FerrariScrollCanvas({
       img.src = `${imageFolderPath}/${i + 1}.jpg`;
       img.onload = () => {
         loadedCountRef.current++;
-        // Draw first frame once first image loads
         if (i === 0) drawFrame(0);
       };
       imagesRef.current[i] = img;
@@ -67,13 +65,11 @@ export default function FerrariScrollCanvas({
     const img = imagesRef.current[Math.round(index)];
     if (!img || !img.complete || img.naturalWidth === 0) return;
 
-    const dpr = window.devicePixelRatio || 1;
     const cw = canvas.width;
     const ch = canvas.height;
 
     ctx.clearRect(0, 0, cw, ch);
 
-    // object-fit: contain logic
     const imgAspect = img.naturalWidth / img.naturalHeight;
     const canvasAspect = cw / ch;
 
@@ -92,7 +88,6 @@ export default function FerrariScrollCanvas({
 
     ctx.drawImage(img, offsetX, offsetY, drawW, drawH);
 
-    // Subtle dark vignette
     const gradient = ctx.createRadialGradient(
       cw / 2, ch / 2, ch * 0.25,
       cw / 2, ch / 2, ch * 0.85
